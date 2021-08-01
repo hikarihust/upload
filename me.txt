@@ -1,3 +1,5 @@
 Giả lập Database với JSON
     Setup
+    List
+        php -S localhost:8888
     
