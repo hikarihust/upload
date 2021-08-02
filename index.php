@@ -7,7 +7,4 @@ $objGroup = new Json($table, $column);
 
 $data = $objGroup->list();
 
-$item = $objGroup->get('lRnTOZd');
-echo "<pre>";
-print_r($item);
-echo "</pre>";
+// $item = $objGroup->delete('lRnTOZd');

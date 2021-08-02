@@ -3,4 +3,5 @@ Giả lập Database với JSON
     List
         php -S localhost:8888
     Get
+    Delete
     
