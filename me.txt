@@ -5,4 +5,5 @@ Giả lập Database với JSON
     Get
     Delete
     MakeID
+    Add
     

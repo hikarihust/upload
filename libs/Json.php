@@ -46,4 +46,15 @@ class Json{
         }
         return $result;
     }
+
+    public function add($params = null){
+        if ($params != null) {
+            $items = $this->list();
+            $params = ['id' => $this->makeID()] + $params;
+            $item = array_intersect_key($params, array_flip($this->columns));
+            $items[] = $item;
+            $this->write($items);
+            return $item['id'];
+        }
+    }
 }
