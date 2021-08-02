@@ -1,35 +1,29 @@
 <?php
 require_once './libs/Json.php';
+require_once './libs/Form.php';
 $columns = ['id', 'name', 'price', 'description', 'image_main', 'image_extra'];
 $obj = new Json('./data/product.json', $columns);
 $data = $obj->list();
 $xhtml = '';
 if(!empty($data)){
     foreach ($data as $key => $value) {
+        $name = $value['name'];
+        $price = number_format($value['price']);
+        $imgMain = $value['image_main'];
+        $btnView = Form::showButtonAction('info.html', 'primary', 'View', 'eye');
+        $btnEdit = Form::showButtonAction('edit.html', 'success', 'Edit', 'pencil');
+        $btnDelete = Form::showButtonAction('delete.html', 'danger btn-delete', 'Delete', 'trash-o');
+
         $xhtml .= '
                 <tr class="even pointer">
                     <td class="a-centre">1</td>
-                    <td>' . $value['name'] . '</td>
+                    <td>' . $name . '</td>
                     <td>
-                        <img src="./uploads/' . $value['image_main'] . '" width="100px" alt="img_main">
+                        <img src="./uploads/' . $imgMain . '" width="100px" alt="img_main">
                     </td>
-                    <td>' . number_format($value['price']) . 'đ</td>
+                    <td>' . $price . 'đ</td>
                     <td class="last">
-                        <a href="info.html" type="button" class="btn btn-icon btn-primary"
-                            data-toggle="tooltip" data-placement="top"
-                            data-original-title="View">
-                            <i class="fa fa-eye"></i>
-                        </a>
-                        <a href="edit.html" type="button" class="btn btn-icon btn-success"
-                            data-toggle="tooltip" data-placement="top"
-                            data-original-title="Edit">
-                            <i class="fa fa-pencil"></i>
-                        </a>
-                        <a href="#" type="button" class="btn btn-icon btn-danger"
-                            data-toggle="tooltip" data-placement="top"
-                            data-original-title="Delete">
-                            <i class="fa fa-trash-o"></i>
-                        </a>
+                    ' . $btnView . $btnEdit . $btnDelete . '
                     </td>
                 </tr>
                 ';
