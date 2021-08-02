@@ -12,4 +12,5 @@ CRUD with multi image - Basic
     Split template
     Show list product
     Show button
+    Show product detail
     
