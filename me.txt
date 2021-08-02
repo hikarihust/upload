@@ -6,4 +6,6 @@ Giả lập Database với JSON
     Delete
     MakeID
     Add
+        $item = ['name' => 'Test', 'status' => 1, 'test' => 123];
+    Update
     

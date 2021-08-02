@@ -57,4 +57,15 @@ class Json{
             return $item['id'];
         }
     }
+
+    public function update($params = null){
+        if ($params != null) {
+            $items = $this->list();
+            $index = array_search($params['id'], array_column($items, 'id'));
+            $item = array_intersect_key($params, array_flip($this->columns));
+            $items[$index] = $item;
+            $this->write($items);
+            return $item;
+        }
+    }
 }
