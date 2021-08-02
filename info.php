@@ -1,8 +1,8 @@
 <?php
 require_once './libs/Json.php';
+require_once './define.php';
 require_once './libs/Form.php';
-$columns = ['id', 'name', 'price', 'description', 'image_main', 'image_extra'];
-$obj = new Json('./data/product.json', $columns);
+$obj = new Json(DATA_PRODUCT, COLUMNS_PRODUCT);
 
 $product = $obj->get($_GET['id']);
 
@@ -17,15 +17,15 @@ $xhtml = '
 <div class="col-md-7 col-sm-7">
     <div class="demo">
         <ul id="lightSlider">
-            <li data-thumb="uploads/'.$imgMain.'">
-                <img src="uploads/'.$imgMain.'" />
+            <li data-thumb="' . PATH_UPLOAD .$imgMain.'">
+                <img src="' . PATH_UPLOAD .$imgMain.'" />
             </li>
         ';
             foreach ($imgExtra as $key => $value) {
                 if(!empty($value)){
                     $xhtml .= '
-                    <li data-thumb="uploads/'.$value.'">
-                        <img src="uploads/'.$value.'" />
+                    <li data-thumb="' . PATH_UPLOAD .$value.'">
+                        <img src="' . PATH_UPLOAD .$value.'" />
                     </li>
                     ';
                 }
@@ -49,24 +49,24 @@ $xhtml = '
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php require_once './html/head.php' ?>
+    <?php require_once PATH_HTML . '/head.php' ?>
 </head>
 <body class="nav-md">
     <div class="container body">
         <div class="main_container">
-            <?php require_once './html/sidebar.php' ?>
+            <?php require_once PATH_HTML . '/sidebar.php' ?>
 
-            <?php require_once './html/top-nav.php' ?>
+            <?php require_once PATH_HTML . '/top-nav.php' ?>
 
             <!-- page content -->
             <div class="right_col" role="main" style="min-height: 2436px;">
-                <?php require_once './html/page-header.php' ?>
+                <?php require_once PATH_HTML . '/page-header.php' ?>
 
                 <div class="clearfix"></div>
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
                         <div class="x_panel">
-                            <?php require_once './html/x-title.php' ?>
+                            <?php require_once PATH_HTML . '/x-title.php' ?>
 
                             <div class="x_content">
                                 <?= $xhtml ?>
@@ -78,10 +78,10 @@ $xhtml = '
         </div>
         <!-- /page content -->
 
-        <?php require_once './html/footer.php' ?>
+        <?php require_once PATH_HTML . '/footer.php' ?>
 
     </div>
 
-    <?php require_once './html/script.php' ?>   
+    <?php require_once PATH_HTML . '/script.php' ?>   
 </body>
 </html>

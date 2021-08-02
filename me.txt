@@ -15,4 +15,5 @@ CRUD with multi image - Basic
     Show product detail
     Embed lightslider
         product gallery slider jquery
+    Define
     

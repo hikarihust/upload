@@ -1,8 +1,8 @@
 <?php
 require_once './libs/Json.php';
+require_once './define.php';
 require_once './libs/Form.php';
-$columns = ['id', 'name', 'price', 'description', 'image_main', 'image_extra'];
-$obj = new Json('./data/product.json', $columns);
+$obj = new Json(DATA_PRODUCT, COLUMNS_PRODUCT);
 $data = $obj->list();
 $xhtml = '';
 if(!empty($data)){
@@ -19,7 +19,7 @@ if(!empty($data)){
                     <td class="a-centre">1</td>
                     <td>' . $name . '</td>
                     <td>
-                        <img src="./uploads/' . $imgMain . '" width="100px" alt="img_main">
+                        <img src="' . PATH_UPLOAD . $imgMain . '" width="100px" alt="img_main">
                     </td>
                     <td>' . $price . 'đ</td>
                     <td class="last">
@@ -36,24 +36,24 @@ if(!empty($data)){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php require_once './html/head.php' ?>
+    <?php require_once PATH_HTML . '/head.php' ?>
 </head>
 <body class="nav-md">
     <div class="container body">
         <div class="main_container">
-            <?php require_once './html/sidebar.php' ?>
+            <?php require_once PATH_HTML . '/sidebar.php' ?>
 
-            <?php require_once './html/top-nav.php' ?>
+            <?php require_once PATH_HTML . '/top-nav.php' ?>
 
             <!-- page content -->
             <div class="right_col" role="main" style="min-height: 2436px;">
-                <?php require_once './html/page-header.php' ?>
+                <?php require_once PATH_HTML . '/page-header.php' ?>
 
                 <div class="clearfix"></div>
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
                         <div class="x_panel">
-                            <?php require_once './html/x-title.php' ?>
+                            <?php require_once PATH_HTML . '/x-title.php' ?>
 
                             <div class="x_content">
                                 <div class="table-responsive">
@@ -82,10 +82,10 @@ if(!empty($data)){
                 </div>
             </div>
             <!-- /page content -->
-            <?php require_once './html/footer.php' ?>
+            <?php require_once PATH_HTML . '/footer.php' ?>
 
         </div>
         
-        <?php require_once './html/script.php' ?>   
+        <?php require_once PATH_HTML . '/script.php' ?>   
 </body>
 </html>
