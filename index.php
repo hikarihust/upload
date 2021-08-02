@@ -7,4 +7,4 @@ $objGroup = new Json($table, $column);
 
 $data = $objGroup->list();
 
-// $item = $objGroup->delete('lRnTOZd');
+$item = $objGroup->makeID();

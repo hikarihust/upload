@@ -9,6 +9,15 @@ class Json{
         $this->columns = $columns;
     }
 
+    public function makeID($length = 6){
+        $arrCharacter = array_merge(range('A', 'Z'), range('a', 'z'), range(0, 9));
+        $arrCharacter = implode('', $arrCharacter);
+        $arrCharacter = str_shuffle($arrCharacter);
+
+        $result = substr($arrCharacter, 0, $length);
+        return $result;
+    }
+
     public function write($data){
         file_put_contents($this->table, json_encode($data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
     }
