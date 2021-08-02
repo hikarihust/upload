@@ -1,3 +1,44 @@
+<?php
+require_once './libs/Json.php';
+$columns = ['id', 'name', 'price', 'description', 'image_main', 'image_extra'];
+$obj = new Json('./data/product.json', $columns);
+$data = $obj->list();
+$xhtml = '';
+if(!empty($data)){
+    foreach ($data as $key => $value) {
+        $xhtml .= '
+                <tr class="even pointer">
+                    <td class="a-centre">1</td>
+                    <td>' . $value['name'] . '</td>
+                    <td>
+                        <img src="./uploads/' . $value['image_main'] . '" width="100px" alt="img_main">
+                    </td>
+                    <td>' . number_format($value['price']) . 'đ</td>
+                    <td class="last">
+                        <a href="info.html" type="button" class="btn btn-icon btn-primary"
+                            data-toggle="tooltip" data-placement="top"
+                            data-original-title="View">
+                            <i class="fa fa-eye"></i>
+                        </a>
+                        <a href="edit.html" type="button" class="btn btn-icon btn-success"
+                            data-toggle="tooltip" data-placement="top"
+                            data-original-title="Edit">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a href="#" type="button" class="btn btn-icon btn-danger"
+                            data-toggle="tooltip" data-placement="top"
+                            data-original-title="Delete">
+                            <i class="fa fa-trash-o"></i>
+                        </a>
+                    </td>
+                </tr>
+                ';
+    }
+}else{
+    $xhtml .= '<tr><td colspan="5" class="text-center">Dữ liệu hiện rỗng</td></tr>';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,106 +78,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="even pointer">
-                                                <td class="a-centre">1</td>
-                                                <td>Áo thun nam trơn</td>
-                                                <td>
-                                                    <img src="./assets/images/img_main1.png" width="100px" alt="img_main">
-                                                </td>
-                                                <td>120,000đ</td>
-                                                <td class="last">
-                                                    <a href="info.html" type="button" class="btn btn-icon btn-primary"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="View">
-                                                        <i class="fa fa-eye"></i>
-                                                    </a>
-                                                    <a href="edit.html" type="button" class="btn btn-icon btn-success"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="Edit">
-                                                        <i class="fa fa-pencil"></i>
-                                                    </a>
-                                                    <a href="#" type="button" class="btn btn-icon btn-danger"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="Delete">
-                                                        <i class="fa fa-trash-o"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr class="even pointer">
-                                                <td class="a-centre">2</td>
-                                                <td>Áo thun nam bang</td>
-                                                <td>
-                                                    <img src="./assets/images/img_main2.png" width="100px" alt="img_main">
-                                                </td>
-                                                <td>125,000đ</td>
-                                                <td class="last">
-                                                    <a href="#" type="button" class="btn btn-icon btn-primary"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="View">
-                                                        <i class="fa fa-eye"></i>
-                                                    </a>
-                                                    <a href="#" type="button" class="btn btn-icon btn-success"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="Edit">
-                                                        <i class="fa fa-pencil"></i>
-                                                    </a>
-                                                    <a href="#" type="button" class="btn btn-icon btn-danger"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="Delete">
-                                                        <i class="fa fa-trash-o"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr class="even pointer">
-                                                <td class="a-centre">3</td>
-                                                <td>Quần sort kaki nam</td>
-                                                <td>
-                                                    <img src="./assets/images/img_main3.png" width="100px" alt="img_main">
-                                                </td>
-                                                <td>150,000đ</td>
-                                                <td class="last">
-                                                    <a href="#" type="button" class="btn btn-icon btn-primary"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="View">
-                                                        <i class="fa fa-eye"></i>
-                                                    </a>
-                                                    <a href="#" type="button" class="btn btn-icon btn-success"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="Edit">
-                                                        <i class="fa fa-pencil"></i>
-                                                    </a>
-                                                    <a href="#" type="button" class="btn btn-icon btn-danger"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="Delete">
-                                                        <i class="fa fa-trash-o"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr class="even pointer">
-                                                <td class="a-centre">4</td>
-                                                <td>Áo thun nam hàn quốc</td>
-                                                <td>
-                                                    <img src="./assets/images/img_main4.png" width="100px" alt="img_main">
-                                                </td>
-                                                <td>255,000đ</td>
-                                                <td class="last">
-                                                    <a href="#" type="button" class="btn btn-icon btn-primary"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="View">
-                                                        <i class="fa fa-eye"></i>
-                                                    </a>
-                                                    <a href="#" type="button" class="btn btn-icon btn-success"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="Edit">
-                                                        <i class="fa fa-pencil"></i>
-                                                    </a>
-                                                    <a href="#" type="button" class="btn btn-icon btn-danger"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="Delete">
-                                                        <i class="fa fa-trash-o"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
+                                            <?= $xhtml ?>
                                         </tbody>
                                     </table>
                                 </div>
