@@ -1,5 +1,7 @@
 <!-- jQuery -->
 <script src="./assets/js/jquery.min.js"></script>
+<!-- light slider -->
+<script src="assets/js/lightslider.js"></script>
 <!-- Bootstrap -->
 <script src="./assets/js/bootstrap.bundle.min.js"></script>
 <!-- FastClick -->

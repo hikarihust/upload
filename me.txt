@@ -13,4 +13,6 @@ CRUD with multi image - Basic
     Show list product
     Show button
     Show product detail
+    Embed lightslider
+        product gallery slider jquery
     

@@ -16,3 +16,4 @@
 <!-- Custom styling plus plugins -->
 <link href="./assets/css/custom.min.css" rel="stylesheet">
 <link href="./assets/css/myStyle.css" rel="stylesheet">
+<link href="assets/css/lightslider.css" rel="stylesheet">

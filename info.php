@@ -15,19 +15,25 @@ $imgExtra = $product['image_extra'];
 $xhtml = '';
 $xhtml = '
 <div class="col-md-7 col-sm-7">
-    <div class="product-image">
-        <img src="./uploads/' . $imgMain . '" alt="image_main" class="image_main">
-    </div>
-    <div class="product_gallery">
-        <a><img src="./uploads/' . $imgMain . '" alt="image_main" class="image_extra active"></a>';
-        foreach ($imgExtra as $key => $value) {
-            if(!empty($value)){
-                $xhtml .= '
-                <a><img src="./uploads/' . $value . '" alt="image_extra1" class="image_extra"></a>
-                ';
+    <div class="demo">
+        <ul id="lightSlider">
+            <li data-thumb="uploads/'.$imgMain.'">
+                <img src="uploads/'.$imgMain.'" />
+            </li>
+        ';
+            foreach ($imgExtra as $key => $value) {
+                if(!empty($value)){
+                    $xhtml .= '
+                    <li data-thumb="uploads/'.$value.'">
+                        <img src="uploads/'.$value.'" />
+                    </li>
+                    ';
+                }
             }
-        }
-    $xhtml .= '</div>
+
+            $xhtml .= '
+        </ul>
+    </div>
 </div>
 <div class="col-md-5 col-sm-5 " style="border:0px solid #e5e5e5;">
     <h3 class="prod_title">' . $name . '</h3>
