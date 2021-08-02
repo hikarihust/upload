@@ -16,4 +16,5 @@ CRUD with multi image - Basic
     Embed lightslider
         product gallery slider jquery
     Define
+    Create autoload & connect
     

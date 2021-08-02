@@ -1,8 +1,5 @@
 <?php
-require_once './libs/Json.php';
-require_once './define.php';
-require_once './libs/Form.php';
-$obj = new Json(DATA_PRODUCT, COLUMNS_PRODUCT);
+require_once './connect.php';
 
 $product = $obj->get($_GET['id']);
 
