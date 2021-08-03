@@ -20,4 +20,5 @@ CRUD with multi image - Basic
     Delete product
     Confirm delete
     Show notify
+    From template
     

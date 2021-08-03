@@ -4,7 +4,7 @@
     </div>
     <div class="title_right">
         <div class="col-md-5 col-sm-5 form-group pull-right top_search text-right">
-            <a href="add.html" class="btn btn-success"><i class="fa fa-plus-circle"></i> Thêm mới</a>
+            <a href="form.php" class="btn btn-success"><i class="fa fa-plus-circle"></i> Thêm mới</a>
         </div>
     </div>
 </div>
