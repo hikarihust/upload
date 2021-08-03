@@ -41,6 +41,6 @@ ul li.lslide{
     color: red;
 }
 
-.preview{
+.preview, .img-old{
     max-width: 100px;
 }

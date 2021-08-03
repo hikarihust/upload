@@ -27,4 +27,5 @@ CRUD with multi image - Basic
         image preview before upload jquery
         https://www.codexworld.com/preview-image-before-upload-jquery/
     Change button
+    Edit product 01
     

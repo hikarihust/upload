@@ -11,7 +11,7 @@ if(!empty($data)){
         $price = number_format($value['price']);
         $imgMain = $value['image_main'];
         $btnView = Form::showButtonAction('info.php?id='.$value['id'].'', 'primary', 'View', 'eye');
-        $btnEdit = Form::showButtonAction('edit.html', 'success', 'Edit', 'pencil');
+        $btnEdit = Form::showButtonAction('form.php?id='.$value['id'].'', 'success', 'Edit', 'pencil');
         $btnDelete = Form::showButtonAction('delete.php?id='.$value['id'].'', 'danger btn-delete', 'Delete', 'trash-o');
 
         $xhtml .= '

@@ -40,6 +40,17 @@ class Form {
         return $xhtml;
     }
 
+    public static function imageOld($value = null, $id = null){
+        $xhtml = null;
+        if(isset($id) && !empty($value)){
+            $xhtml .= sprintf('
+                <img src="'.PATH_UPLOAD.'%s" alt="img_old" class="img-old">
+            ', $value);
+        }
+    
+        return $xhtml;
+    }
+
     public static function textArea($name, $value = null){
         $xhtml = null;
         $xhtml .= sprintf('

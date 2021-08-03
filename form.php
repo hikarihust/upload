@@ -1,38 +1,49 @@
 <?php
 require_once './connect.php';
 
+$type = 'add';
+if(isset($_GET['id'])){
+    $type = 'edit';
+    $id = $_GET['id'];
+    $product = $obj->get($id);
+}
+
 $elements = [
     [
         'label'   => Form::label('Name'),
-        'element' => Form::input('text', 'name')
+        'element' => Form::input('text', 'name', @$product['name'])
     ],
     [
         'label'   => Form::label('Price'),
-        'element' => Form::input('number', 'price')
+        'element' => Form::input('number', 'price', @$product['price'])
     ],
     [
         'label'   => Form::label('Description', false),
-        'element' => Form::textArea('description')
+        'element' => Form::textArea('description', @$product['description'])
     ],
     [
         'label'   => Form::label('Hình ảnh chính', false),
-        'element' => Form::inputImage('image_main')
+        'element' => Form::inputImage('image_main') . 
+                    Form::imageOld(@$product['image_main'], @$id)
     ],
     [
         'label'   => Form::label('Hình ảnh phụ 1', false),
-        'element' => Form::inputImage('image_extra[]')
+        'element' => Form::inputImage('image_extra[]') . 
+                    Form::imageOld(@$product['image_extra'][0], @$id)
     ],
     [
         'label'   => Form::label('Hình ảnh phụ 2', false),
-        'element' => Form::inputImage('image_extra[]')
+        'element' => Form::inputImage('image_extra[]') . 
+                    Form::imageOld(@$product['image_extra'][1], @$id)
     ],
     [
         'label'   => Form::label('Hình ảnh phụ 3', false),
-        'element' => Form::inputImage('image_extra[]')
+        'element' => Form::inputImage('image_extra[]') . 
+                    Form::imageOld(@$product['image_extra'][2], @$id)
     ],
     [
         'element' => Form::button('Lưu').
-                    Form::input('hidden', 'type', "add"),
+                    Form::input('hidden', 'type', $type),
         'type'    => 'btn-submit'
     ],
 ];
