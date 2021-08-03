@@ -5,6 +5,7 @@ $data = $obj->list();
 $xhtml = '';
 if(!empty($data)){
     foreach ($data as $key => $value) {
+        $index = ++$key;
         $name = $value['name'];
         $price = number_format($value['price']);
         $imgMain = $value['image_main'];
@@ -14,7 +15,7 @@ if(!empty($data)){
 
         $xhtml .= '
                 <tr class="even pointer">
-                    <td class="a-centre">1</td>
+                    <td class="a-centre">'.$index.'</td>
                     <td>' . $name . '</td>
                     <td>
                         <img src="' . PATH_UPLOAD . $imgMain . '" width="100px" alt="img_main">

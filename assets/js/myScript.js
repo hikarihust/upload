@@ -5,3 +5,10 @@ $('#lightSlider').lightSlider({
     slideMargin: 0,
     thumbItem: 9
 });
+
+$('.btn-delete').click(function (e) { 
+    e.preventDefault();
+    if(confirm('Bạn có chắc muốn xóa hay không?')){
+        window.location.href = $(this).attr('href');
+    }
+});
