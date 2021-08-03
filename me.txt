@@ -21,4 +21,5 @@ CRUD with multi image - Basic
     Confirm delete
     Show notify
     From template
+    Add product 01
     

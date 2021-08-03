@@ -61,7 +61,7 @@ $elements = [
                             <?php require_once PATH_HTML . '/x-title.php' ?>
 
                             <div class="x_content">
-                                <form action="" method="POST" enctype="multipart/form-data" class="form-horizontal form-label-left" autocomplete="off">
+                                <form action="./handle.php" method="POST" enctype="multipart/form-data" class="form-horizontal form-label-left" autocomplete="off">
                                     <?= Form::show($elements) ?>
                                 </form>
                             </div>
