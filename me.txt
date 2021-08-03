@@ -23,4 +23,7 @@ CRUD with multi image - Basic
     From template
     Add product 01
     Add product 02
+    Prevew image
+        image preview before upload jquery
+        https://www.codexworld.com/preview-image-before-upload-jquery/
     

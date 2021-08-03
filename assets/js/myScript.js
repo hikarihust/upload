@@ -12,3 +12,15 @@ $('.btn-delete').click(function (e) {
         window.location.href = $(this).attr('href');
     }
 });
+
+$(".image-upload").change(function () {
+    var currentImageUpload = $(this);
+    if (this.files && this.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            currentImageUpload.parent().find('.preview').remove(); 
+            currentImageUpload.parent().append('<img src="'+e.target.result+'" class="preview"/>');
+        };
+        reader.readAsDataURL(this.files[0]);
+    }
+});
