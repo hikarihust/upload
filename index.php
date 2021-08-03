@@ -10,7 +10,7 @@ if(!empty($data)){
         $imgMain = $value['image_main'];
         $btnView = Form::showButtonAction('info.php?id='.$value['id'].'', 'primary', 'View', 'eye');
         $btnEdit = Form::showButtonAction('edit.html', 'success', 'Edit', 'pencil');
-        $btnDelete = Form::showButtonAction('delete.html', 'danger btn-delete', 'Delete', 'trash-o');
+        $btnDelete = Form::showButtonAction('delete.php?id='.$value['id'].'', 'danger btn-delete', 'Delete', 'trash-o');
 
         $xhtml .= '
                 <tr class="even pointer">

@@ -17,4 +17,5 @@ CRUD with multi image - Basic
         product gallery slider jquery
     Define
     Create autoload & connect
+    Delete product
     
