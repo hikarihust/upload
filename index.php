@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once './connect.php';
 
 $data = $obj->list();
@@ -55,6 +56,7 @@ if(!empty($data)){
                             <?php require_once PATH_HTML . '/x-title.php' ?>
 
                             <div class="x_content">
+                                <?= MyHelper::showNotify() ?>
                                 <div class="table-responsive">
                                     <table class="table table-striped jambo_table bulk_action">
                                         <thead>

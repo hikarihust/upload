@@ -19,4 +19,5 @@ CRUD with multi image - Basic
     Create autoload & connect
     Delete product
     Confirm delete
+    Show notify
     
