@@ -1,0 +1,50 @@
+[
+    {
+        "id": "2OYQ9B",
+        "name": "Áo thun nam trơn 123",
+        "price": "123000",
+        "description": "Chất liệu thun 65% cotton, mềm mịn và tạo cảm giác thoải mái khi mặc. Không ra màu",
+        "image_main": "EJSP1r903.png",
+        "image_extra": [
+            "erMZi6Apf.png",
+            "JpNOYim87.png",
+            "ItqQdjA3v.png"
+        ]
+    },
+    {
+        "id": "xsjZhT",
+        "name": "Áo thun nam bang",
+        "price": "225000",
+        "description": "Chất liệu: 95% Cotton và 5% Spandex. Kiểu dáng: Form slimfit ôm vừa người, tôn dáng",
+        "image_main": "IgQ2vm3tO.png",
+        "image_extra": [
+            "vqsIKpzSd.png",
+            "loL7qkSzb.png",
+            ""
+        ]
+    },
+    {
+        "id": "0SxtjL",
+        "name": "Áo thun nam hàn quốc",
+        "price": "189000",
+        "description": "95% cotton,5 % spandex. Khả năng thấm hút tốt. Độ co giãn tốt hơn vì có pha thêm sợi Spandex",
+        "image_main": "C2StXvVfh.png",
+        "image_extra": [
+            "HudrITPYN.png",
+            "94NTikdKO.png",
+            "cPQuNzj5K.png"
+        ]
+    },
+    {
+        "id": "9U0krO",
+        "name": "Áo sơ mi tay dài",
+        "price": "299000",
+        "description": "Được may từ chất liệu vải mềm mát, thoáng khí, thấm hút mồ hôi tốt",
+        "image_main": "L3JvPHhog.png",
+        "image_extra": [
+            "FXGPLyE9o.png",
+            "jpxGUgPhv.png",
+            "ln79PAtuU.png"
+        ]
+    }
+]

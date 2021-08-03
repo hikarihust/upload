@@ -1,0 +1,46 @@
+td {
+    vertical-align: middle !important;
+}
+
+.btn-icon {
+    border-radius: 50%;
+}
+
+.demo {
+    width:450px;
+}
+ul {
+    list-style: none outside none;
+    padding-left: 0;
+    margin-bottom:0;
+}
+li {
+    display: block;
+    float: left;
+    margin-right: 6px;
+    cursor:pointer;
+}
+ul#lightSlider li img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+ul li.lslide{
+    width: 450px;
+    margin-right: 0px;
+    border: 1px solid #cabebe;
+    border-radius: 13px;
+}
+
+.preview, .img-old{
+    max-width: 100px;
+}
+
+.required{
+    color: red;
+}
+
+.preview, .img-old{
+    max-width: 100px;
+}

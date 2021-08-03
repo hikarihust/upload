@@ -30,4 +30,6 @@ CRUD with multi image - Basic
     Edit product 01
     Edit product 02
     Check file extensions
+CRUD with multi image - Alt & Ordering
+    backup CRUD with multi image - Basic
     
