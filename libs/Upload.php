@@ -4,6 +4,7 @@ class Upload{
 
     public function uploadFile($fileObj, $imgOld = null){
         if(!empty($fileObj['tmp_name'])){
+            $this->checkExtension($fileObj['name'], EXTENTION_VALID);
             $this->removeFile(@$imgOld);
             $fileNameMain = $this->randomFileName($fileObj['name']);
             move_uploaded_file($fileObj['tmp_name'], PATH_UPLOAD . $fileNameMain);
@@ -18,6 +19,7 @@ class Upload{
         $arrExtra = [];
         foreach ($fileObj['name'] as $key => $value) { 
             if(!empty($fileObj['tmp_name'][$key])){
+                $this->checkExtension($value, EXTENTION_VALID);  // check type image
                 $this->removeFile(@$imgOld[$key]);   // remove image old     
                 $fileNameExtra = $this->randomFileName($value);
                 move_uploaded_file($fileObj['tmp_name'][$key], PATH_UPLOAD . $fileNameExtra);
@@ -46,4 +48,16 @@ class Upload{
             unlink($fileName);
         }
     }
+
+	// Check file extensions
+	public function checkExtension($fileName, $arrExtension){
+		$ext = pathinfo($fileName, PATHINFO_EXTENSION);
+		$flag = false;
+		if(in_array(strtolower($ext), $arrExtension) == false){
+            $_SESSION['message']['error'] = 'Không đúng định dạng';
+            header('location: index.php');
+            exit();
+        }
+		return $flag;
+	}
 }
