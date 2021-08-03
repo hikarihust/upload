@@ -43,7 +43,8 @@ $elements = [
     ],
     [
         'element' => Form::button('Lưu').
-                    Form::input('hidden', 'type', $type),
+                    Form::input('hidden', 'type', $type) . 
+                    Form::input('hidden', 'id', @$id),
         'type'    => 'btn-submit'
     ],
 ];

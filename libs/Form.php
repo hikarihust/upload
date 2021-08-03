@@ -44,7 +44,7 @@ class Form {
         $xhtml = null;
         if(isset($id) && !empty($value)){
             $xhtml .= sprintf('
-                <img src="'.PATH_UPLOAD.'%s" alt="img_old" class="img-old">
+                <img src="'.PATH_UPLOAD.'%s" alt="img_old" class="img-old preview">
             ', $value);
         }
     

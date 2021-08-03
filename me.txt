@@ -28,4 +28,5 @@ CRUD with multi image - Basic
         https://www.codexworld.com/preview-image-before-upload-jquery/
     Change button
     Edit product 01
+    Edit product 02
     
