@@ -22,4 +22,5 @@ CRUD with multi image - Basic
     Show notify
     From template
     Add product 01
+    Add product 02
     
