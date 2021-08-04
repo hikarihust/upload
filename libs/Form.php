@@ -86,7 +86,7 @@ class Form {
                 $xhtml .= sprintf('
                 <div class="item form-group">
                     %s
-                    <div class="col-md-6 col-sm-6 ">
+                    <div class="col-md-6 col-sm-6 input-wrapper">
                         %s
                     </div>
                 </div>
