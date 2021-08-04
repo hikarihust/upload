@@ -24,21 +24,28 @@ $elements = [
     [
         'label'   => Form::label('Hình ảnh chính', false),
         'element' => Form::inputImage('image_main') . 
+                    Form::input('text', 'alt_main', null, 'col-md-5 ml-md-2', false) .
                     Form::imageOld(@$product['image_main'], @$id)
     ],
     [
         'label'   => Form::label('Hình ảnh phụ 1', false),
         'element' => Form::inputImage('image_extra[]') . 
+                    Form::input('text', 'alt_extra[]', null, 'col-md-3 ml-md-1', false) .
+                    Form::input('number', 'ordering[]', null, 'col-md-2 ml-md-1', false) .
                     Form::imageOld(@$product['image_extra'][0], @$id)
     ],
     [
         'label'   => Form::label('Hình ảnh phụ 2', false),
         'element' => Form::inputImage('image_extra[]') . 
+                    Form::input('text', 'alt_extra[]', null, 'col-md-3 ml-md-1', false) .
+                    Form::input('number', 'ordering[]', null, 'col-md-2 ml-md-1', false) .
                     Form::imageOld(@$product['image_extra'][1], @$id)
     ],
     [
         'label'   => Form::label('Hình ảnh phụ 3', false),
         'element' => Form::inputImage('image_extra[]') . 
+                    Form::input('text', 'alt_extra[]', null, 'col-md-3 ml-md-1', false) .
+                    Form::input('number', 'ordering[]', null, 'col-md-2 ml-md-1', false) .
                     Form::imageOld(@$product['image_extra'][2], @$id)
     ],
     [

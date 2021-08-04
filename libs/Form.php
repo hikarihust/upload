@@ -27,15 +27,15 @@ class Form {
         return $xhtml;
     }
 
-    public static function input($type, $name, $value = null, $required = true){
+    public static function input($type, $name, $value = null, $class = null, $required = true){
         $xhtml = null;
         $xhtmlRequired = '';
         if($required == true){
             $xhtmlRequired = 'required';
         }
         $xhtml .= sprintf('
-            <input type="%s" id="name" name="%s" value="%s" %s class="form-control">
-        ', $type, $name, $value, $xhtmlRequired);
+            <input type="%s" name="%s" value="%s" class="form-control %s" %s>
+        ', $type, $name, $value, $class, $xhtmlRequired);
     
         return $xhtml;
     }
@@ -63,7 +63,7 @@ class Form {
     public static function inputImage($name){
         $xhtml = null;
         $xhtml .= sprintf('
-            <input type="file" id="image_main" name="%s" class="form-control image-upload">
+            <input type="file" id="image_main" name="%s" class="form-control col-md-6 image-upload">
         ', $name);
     
         return $xhtml;
