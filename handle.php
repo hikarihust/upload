@@ -6,7 +6,7 @@ $objUpload = new Upload();
 $id = null;
 $product = null;
 
-if(isset($_POST['submit'])) {
+if(isset($_POST)) {
     if(isset($_POST['type']) == 'edit'){
         $type = $_POST['type'];
         $id   = $_POST['id'];
@@ -15,24 +15,19 @@ if(isset($_POST['submit'])) {
 
     $name = $_POST['name'];
     $price = $_POST['price'];
-    $altMain     = $_POST['alt_main'];
-    $altExtra    = $_POST['alt_extra'];
+    $alts     = $_POST['alt'];
     $ordering    = $_POST['ordering'];
     $description = $_POST['description'];
-    $imageMain = $_FILES['image_main'];
-    $imageExtra = $_FILES['image_extra'];
+    $images = $_FILES['images'];
     
-    $fileNameMain = $objUpload->uploadFile($imageMain, $altMain, @$product['image_main']);  // upload image main
-
-    $arrExtra    = $objUpload->uploadFileMulty($imageExtra, $altExtra, $ordering, @$product['image_extra']);  // upload image extra
+    $arrImage    = $objUpload->uploadFileMulty($images, $alts, $ordering, @$product['images']);  // upload image extra
     
     $item = [
         'id' => $id,
         'name' => $name,
         'price' => $price,
         'description' => $description,
-        'image_main' => $fileNameMain,
-        'image_extra' => $arrExtra,
+        'images' => $arrImage
     ];
     
     if($type == 'edit'){

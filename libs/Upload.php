@@ -2,37 +2,23 @@
 
 class Upload{
 
-    public function uploadFile($fileObj, $altMain, $imgOld = null){
-        if(!empty($fileObj['tmp_name'])){
-            $this->checkExtension($fileObj['name'], EXTENTION_VALID);
-            $this->removeFile(@$imgOld['image']);
-            $fileNameMain['image'] = $this->randomFileName($fileObj['name']);
-            $fileNameMain['alt']   = $altMain;
-            move_uploaded_file($fileObj['tmp_name'], PATH_UPLOAD . $fileNameMain['image']);
-        } else {
-            $fileNameMain['image'] = !empty($imgOld['image']) ? $imgOld['image'] : '';
-            $fileNameMain['alt']   = $altMain;
-        }
-        
-        return $fileNameMain;
-    }
-
-    public function uploadFileMulty($fileObj, $altExtra, $ordering, $imgOld = null){
-        $arrExtra = [];
+    public function uploadFileMulty($fileObj, $alts, $ordering, $imgOld = null){
+        $arrImage = [];
         foreach ($fileObj['name'] as $key => $value) { 
             if(!empty($fileObj['tmp_name'][$key])){
                 $this->checkExtension($value, EXTENTION_VALID);  // check type image
                 $this->removeFile(@$imgOld[$key]['image']);   // remove image old     
-                $fileNameExtra = $this->randomFileName($value);
-                move_uploaded_file($fileObj['tmp_name'][$key], PATH_UPLOAD . $fileNameExtra);
-                $arrExtra[$key]['image'] = $fileNameExtra;
+                $fileImage = $this->randomFileName($value);
+                move_uploaded_file($fileObj['tmp_name'][$key], PATH_UPLOAD . $fileImage);
+                $arrImage[$key]['image'] = $fileImage;
             }else{
-                $arrExtra[$key]['image'] = !empty($imgOld[$key]['image']) ? $imgOld[$key]['image'] : '';
+                $arrImage[$key]['image'] = !empty($imgOld[$key]['image']) ? $imgOld[$key]['image'] : '';
             }
-            $arrExtra[$key]['ordering'] = !empty($ordering[$key]) ? $ordering[$key] : $key + 1;
-            $arrExtra[$key]['alt']      = !empty($altExtra[$key]) ? $altExtra[$key] : '';
+            $arrImage[$key]['ordering'] = !empty($ordering[$key]) ? $ordering[$key] : $key + 1;
+            $arrImage[$key]['alt']      = !empty($alts[$key]) ? $alts[$key] : '';
         }
-        return $arrExtra;
+
+        return $arrImage;
     }
     
     public function randomFileName($fileName, $length = 9){
@@ -49,7 +35,7 @@ class Upload{
     public function removeFile($fileName){
         $fileName   = PATH_UPLOAD . $fileName;
         if(file_exists($fileName)){
-            unlink($fileName);
+            @unlink($fileName);
         }
     }
 
