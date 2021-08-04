@@ -13,29 +13,29 @@ class Form {
         return $xhtml;
     }
 
-    public static function label($name, $required = true){
+    public static function label($name, $class = null, $required = true){
         $xhtml = null;
         $xhtmlRequired = '';
         if($required == true){
             $xhtmlRequired = '<span class="required">*</span>';
         }
         $xhtml .= sprintf('
-        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">%s %s
+        <label class="col-form-label col-md-3 col-sm-3 label-align %s" for="first-name">%s %s
         </label>
-        ', $name, $xhtmlRequired);
+        ', $class, $name, $xhtmlRequired);
     
         return $xhtml;
     }
 
-    public static function input($type, $name, $value = null, $class = null, $required = true){
+    public static function input($type, $name, $value = null, $class = null, $placeholder = null, $required = true){
         $xhtml = null;
         $xhtmlRequired = '';
         if($required == true){
             $xhtmlRequired = 'required';
         }
         $xhtml .= sprintf('
-            <input type="%s" name="%s" value="%s" class="form-control %s" %s>
-        ', $type, $name, $value, $class, $xhtmlRequired);
+            <input type="%s" name="%s" value="%s" class="form-control %s" placeholder="%s" %s>
+        ', $type, $name, $value, $class, $placeholder, $xhtmlRequired);
     
         return $xhtml;
     }

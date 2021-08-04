@@ -31,6 +31,8 @@ var resetLabel = function(){
     });
 }
 
+resetLabel();
+
 $('.btn-add-image').click(function (e) { 
     e.preventDefault();
     var index = $('.label-image').length + 1;
@@ -67,4 +69,10 @@ $('.btn-add-image').click(function (e) {
         var t = $(this).closest('.item.form-group.input');
         $.when(t.remove()).then(resetLabel());
     });
+});
+
+$('.btn-remove-image').click(function (e) { 
+    e.preventDefault();
+    var t = $(this).closest('.item.form-group.input');
+    $.when(t.remove()).then(resetLabel());
 });

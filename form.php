@@ -8,7 +8,7 @@ if(isset($_GET['id'])){
     $product = $obj->get($id);
 }
 
-$elements = [
+$elementsInput = [
     [
         'label'   => Form::label('Name'),
         'element' => Form::input('text', 'name', @$product['name'])
@@ -22,12 +22,30 @@ $elements = [
         'element' => Form::textArea('description', @$product['description'])
     ],
     [
-        'label'   => Form::label('', false),
+        'label'   => Form::label('', null, false),
         'element' => Form::button('button', '<i class="fa fa-plus"></i> Thêm hình ảnh', 'primary btn-sm d-block mx-auto btn-add-image')
-    ],
+    ]
+];
+
+$elementsImage = [];
+    if(!empty($product['images'])){
+        foreach ($product['images'] as $key => $value) {
+            $index = $key + 1;
+            $elementsImage[] = [
+                'label'   => Form::label("Hình ảnh phụ {$index}", 'label-image', false),
+                'element' => Form::inputImage('images[]') .
+                             Form::input('text','alt[]', @$value['alt'], 'col-md-3 ml-1', 'alt_image', false) .
+                             Form::input('number','ordering[]', @$value['ordering'], 'col-md-2 ml-1', false) .
+                             Form::imageOld(@$value['image'], @$id) .
+                             Form::button('button', '<i class="fa fa-times"></i>', 'danger btn-sm btn-remove-image rounded-circle switch-btn', $key)
+            ];
+        }
+    }
+
+$elementsSubmit = [
     [
-        'element' => Form::button('submit', 'Lưu', 'success d-block mx-auto').
-                    Form::input('hidden', 'type', $type) . 
+        'element' => Form::button('submit', 'Lưu', 'success d-block mx-auto') .
+                    Form::input('hidden', 'type', @$type) .
                     Form::input('hidden', 'id', @$id),
         'type'    => 'btn-submit'
     ],
@@ -58,7 +76,9 @@ $elements = [
 
                             <div class="x_content">
                                 <form action="./handle.php" method="POST" enctype="multipart/form-data" class="form-horizontal form-label-left" autocomplete="off">
-                                    <?= Form::show($elements) ?>
+                                    <?= Form::show($elementsInput) ?>
+                                    <?= Form::show($elementsImage) ?>
+                                    <?= Form::show($elementsSubmit) ?>
                                 </form>
                             </div>
                         </div>
