@@ -24,29 +24,29 @@ $elements = [
     [
         'label'   => Form::label('Hình ảnh chính', false),
         'element' => Form::inputImage('image_main') . 
-                    Form::input('text', 'alt_main', null, 'col-md-5 ml-md-2', false) .
-                    Form::imageOld(@$product['image_main'], @$id)
+                    Form::input('text', 'alt_main', @$product['image_main']['alt'], 'col-md-5 ml-md-2', false) .
+                    Form::imageOld(@$product['image_main']['image'], @$id)
     ],
     [
         'label'   => Form::label('Hình ảnh phụ 1', false),
         'element' => Form::inputImage('image_extra[]') . 
-                    Form::input('text', 'alt_extra[]', null, 'col-md-3 ml-md-1', false) .
-                    Form::input('number', 'ordering[]', null, 'col-md-2 ml-md-1', false) .
-                    Form::imageOld(@$product['image_extra'][0], @$id)
+                    Form::input('text', 'alt_extra[]', @$product['image_extra'][0]['alt'], 'col-md-3 ml-md-1', false) .
+                    Form::input('number', 'ordering[]', @$product['image_extra'][0]['ordering'], 'col-md-2 ml-md-1', false) .
+                    Form::imageOld(@$product['image_extra'][0]['image'], @$id)
     ],
     [
         'label'   => Form::label('Hình ảnh phụ 2', false),
         'element' => Form::inputImage('image_extra[]') . 
-                    Form::input('text', 'alt_extra[]', null, 'col-md-3 ml-md-1', false) .
-                    Form::input('number', 'ordering[]', null, 'col-md-2 ml-md-1', false) .
-                    Form::imageOld(@$product['image_extra'][1], @$id)
+                    Form::input('text', 'alt_extra[]', @$product['image_extra'][1]['alt'], 'col-md-3 ml-md-1', false) .
+                    Form::input('number', 'ordering[]', @$product['image_extra'][1]['ordering'], 'col-md-2 ml-md-1', false) .
+                    Form::imageOld(@$product['image_extra'][1]['image'], @$id)
     ],
     [
         'label'   => Form::label('Hình ảnh phụ 3', false),
         'element' => Form::inputImage('image_extra[]') . 
-                    Form::input('text', 'alt_extra[]', null, 'col-md-3 ml-md-1', false) .
-                    Form::input('number', 'ordering[]', null, 'col-md-2 ml-md-1', false) .
-                    Form::imageOld(@$product['image_extra'][2], @$id)
+                    Form::input('text', 'alt_extra[]', @$product['image_extra'][2]['alt'], 'col-md-3 ml-md-1', false) .
+                    Form::input('number', 'ordering[]', @$product['image_extra'][2]['ordering'], 'col-md-2 ml-md-1', false) .
+                    Form::imageOld(@$product['image_extra'][2]['image'], @$id)
     ],
     [
         'element' => Form::button('Lưu').

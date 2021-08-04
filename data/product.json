@@ -1,28 +1,28 @@
 [
     {
         "id": "XJFb5Q",
-        "name": "ao thun",
-        "price": "100000",
-        "description": "Description ao thun",
+        "name": "ao thun edit",
+        "price": "110000",
+        "description": "Description ao thun edit",
         "image_main": {
             "image": "XsgUanRmd.png",
-            "alt": "main"
+            "alt": "main_edit"
         },
         "image_extra": [
             {
-                "image": "U3IYztpwA.png",
-                "ordering": "3",
-                "alt": "extra1"
+                "image": "h9D3rz2w8.png",
+                "ordering": "1",
+                "alt": "extra1edit"
             },
             {
                 "image": "SlHDjKr5Q.png",
                 "ordering": "2",
-                "alt": "extra2"
+                "alt": "extra2edit"
             },
             {
                 "image": "oSCFZ31rU.png",
-                "ordering": "1",
-                "alt": "extra3"
+                "ordering": "3",
+                "alt": "extra3edit"
             }
         ]
     }

@@ -35,4 +35,5 @@ CRUD with multi image - Alt & Ordering
     Custom form
     Preview image
     Add product
+    Edit product
     
