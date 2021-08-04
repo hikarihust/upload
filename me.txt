@@ -40,4 +40,6 @@ CRUD with multi image - Alt & Ordering
     Sort product
         Sort an array by a child array's value
     Delete product
+CRUD with multi image - Advance
+    backup CRUD with multi image - Alt & Ordering
     
