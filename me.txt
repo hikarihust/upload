@@ -46,4 +46,5 @@ CRUD with multi image - Advance
     Create form 02
     Add product
     Edit product 01
+    Edit product 02
     

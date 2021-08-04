@@ -69,11 +69,11 @@ class Form {
         return $xhtml;
     }
 
-    public static function button($type, $name, $class = null){
+    public static function button($type, $name, $class = null, $index = null){
         $xhtml = null;
         $xhtml .= sprintf('
-            <button type="%s" class="btn btn-%s">%s</button>
-        ', $type, $class, $name);
+            <button type="%s" class="btn btn-%s" data-index="%s">%s</button>
+        ', $type, $class, $index, $name);
     
         return $xhtml;
     }

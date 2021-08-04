@@ -1,9 +1,9 @@
 [
     {
         "id": "hbQEZn",
-        "name": "ao thun",
-        "price": "100000",
-        "description": "mo ta ao thun",
+        "name": "ao thun 123",
+        "price": "399000",
+        "description": "mo ta ao thun 123",
         "images": [
             {
                 "image": "ORYNELbsQ.png",
@@ -14,11 +14,6 @@
                 "image": "nFTJlPi2B.png",
                 "ordering": "1",
                 "alt": "alt1"
-            },
-            {
-                "image": "rZLwaC4H0.png",
-                "ordering": "2",
-                "alt": "alt2"
             },
             {
                 "image": "vg9GjcKYH.png",

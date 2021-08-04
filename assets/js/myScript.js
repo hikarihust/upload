@@ -74,5 +74,9 @@ $('.btn-add-image').click(function (e) {
 $('.btn-remove-image').click(function (e) { 
     e.preventDefault();
     var t = $(this).closest('.item.form-group.input');
+
+    var index = $(this).data("index");
+    $('form').append('<input type="hidden" name="image_delete[]" value="'+index+'">')
+
     $.when(t.remove()).then(resetLabel());
 });
