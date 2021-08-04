@@ -69,11 +69,11 @@ class Form {
         return $xhtml;
     }
 
-    public static function button($name){
+    public static function button($type, $name, $class = null){
         $xhtml = null;
         $xhtml .= sprintf('
-            <button type="submit" name="submit" class="btn btn-success">%s</button>
-        ', $name);
+            <button type="%s" class="btn btn-%s">%s</button>
+        ', $type, $class, $name);
     
         return $xhtml;
     }
@@ -84,7 +84,7 @@ class Form {
             $type = isset($value['type']) ? $value['type'] : "input";
             if($type == 'input'){
                 $xhtml .= sprintf('
-                <div class="item form-group">
+                <div class="item form-group input">
                     %s
                     <div class="col-md-6 col-sm-6 input-wrapper">
                         %s

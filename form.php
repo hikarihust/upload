@@ -22,34 +22,11 @@ $elements = [
         'element' => Form::textArea('description', @$product['description'])
     ],
     [
-        'label'   => Form::label('Hình ảnh chính', false),
-        'element' => Form::inputImage('image_main') . 
-                    Form::input('text', 'alt_main', @$product['image_main']['alt'], 'col-md-5 ml-md-2', false) .
-                    Form::imageOld(@$product['image_main']['image'], @$id)
+        'label'   => Form::label('', false),
+        'element' => Form::button('button', '<i class="fa fa-plus"></i> Thêm hình ảnh', 'primary btn-sm d-block mx-auto btn-add-image')
     ],
     [
-        'label'   => Form::label('Hình ảnh phụ 1', false),
-        'element' => Form::inputImage('image_extra[]') . 
-                    Form::input('text', 'alt_extra[]', @$product['image_extra'][0]['alt'], 'col-md-3 ml-md-1', false) .
-                    Form::input('number', 'ordering[]', @$product['image_extra'][0]['ordering'], 'col-md-2 ml-md-1', false) .
-                    Form::imageOld(@$product['image_extra'][0]['image'], @$id)
-    ],
-    [
-        'label'   => Form::label('Hình ảnh phụ 2', false),
-        'element' => Form::inputImage('image_extra[]') . 
-                    Form::input('text', 'alt_extra[]', @$product['image_extra'][1]['alt'], 'col-md-3 ml-md-1', false) .
-                    Form::input('number', 'ordering[]', @$product['image_extra'][1]['ordering'], 'col-md-2 ml-md-1', false) .
-                    Form::imageOld(@$product['image_extra'][1]['image'], @$id)
-    ],
-    [
-        'label'   => Form::label('Hình ảnh phụ 3', false),
-        'element' => Form::inputImage('image_extra[]') . 
-                    Form::input('text', 'alt_extra[]', @$product['image_extra'][2]['alt'], 'col-md-3 ml-md-1', false) .
-                    Form::input('number', 'ordering[]', @$product['image_extra'][2]['ordering'], 'col-md-2 ml-md-1', false) .
-                    Form::imageOld(@$product['image_extra'][2]['image'], @$id)
-    ],
-    [
-        'element' => Form::button('Lưu').
+        'element' => Form::button('submit', 'Lưu', 'success d-block mx-auto').
                     Form::input('hidden', 'type', $type) . 
                     Form::input('hidden', 'id', @$id),
         'type'    => 'btn-submit'
