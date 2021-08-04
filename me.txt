@@ -39,4 +39,5 @@ CRUD with multi image - Alt & Ordering
     Show product detail
     Sort product
         Sort an array by a child array's value
+    Delete product
     
