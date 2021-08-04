@@ -6,7 +6,8 @@ $product = $obj->get($_GET['id']);
 $name = $product['name'];
 $price = number_format($product['price']);
 $description = $product['description'];
-$imgMain = $product['image_main'];
+$imgMain = $product['image_main']['image'];
+$altMain = @$product['image_main']['alt'];
 $imgExtra = $product['image_extra'];
 
 $xhtml = '';
@@ -15,14 +16,14 @@ $xhtml = '
     <div class="demo">
         <ul id="lightSlider">
             <li data-thumb="' . PATH_UPLOAD .$imgMain.'">
-                <img src="' . PATH_UPLOAD .$imgMain.'" />
+                <img src="' . PATH_UPLOAD .$imgMain.'" alt="'.$altMain.'"/>
             </li>
         ';
             foreach ($imgExtra as $key => $value) {
-                if(!empty($value)){
+                if(!empty($value['image'])){
                     $xhtml .= '
-                    <li data-thumb="' . PATH_UPLOAD .$value.'">
-                        <img src="' . PATH_UPLOAD .$value.'" />
+                    <li data-thumb="' . PATH_UPLOAD .$value['image'].'">
+                        <img src="' . PATH_UPLOAD .$value['image'].'" alt="'.$value['alt'].'"/>
                     </li>
                     ';
                 }

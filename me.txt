@@ -36,4 +36,5 @@ CRUD with multi image - Alt & Ordering
     Preview image
     Add product
     Edit product
+    Show product detail
     
