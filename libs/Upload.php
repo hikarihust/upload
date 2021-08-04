@@ -2,31 +2,35 @@
 
 class Upload{
 
-    public function uploadFile($fileObj, $imgOld = null){
+    public function uploadFile($fileObj, $altMain, $imgOld = null){
         if(!empty($fileObj['tmp_name'])){
             $this->checkExtension($fileObj['name'], EXTENTION_VALID);
-            $this->removeFile(@$imgOld);
-            $fileNameMain = $this->randomFileName($fileObj['name']);
-            move_uploaded_file($fileObj['tmp_name'], PATH_UPLOAD . $fileNameMain);
+            $this->removeFile(@$imgOld['image']);
+            $fileNameMain['image'] = $this->randomFileName($fileObj['name']);
+            $fileNameMain['alt']   = $altMain;
+            move_uploaded_file($fileObj['tmp_name'], PATH_UPLOAD . $fileNameMain['image']);
         } else {
-            $fileNameMain = !empty($imgOld) ? $imgOld : '';
+            $fileNameMain['image'] = !empty($imgOld['image']) ? $imgOld['image'] : '';
+            $fileNameMain['alt']   = $altMain;
         }
         
         return $fileNameMain;
     }
 
-    public function uploadFileMulty($fileObj, $imgOld = null){
+    public function uploadFileMulty($fileObj, $altExtra, $ordering, $imgOld = null){
         $arrExtra = [];
         foreach ($fileObj['name'] as $key => $value) { 
             if(!empty($fileObj['tmp_name'][$key])){
                 $this->checkExtension($value, EXTENTION_VALID);  // check type image
-                $this->removeFile(@$imgOld[$key]);   // remove image old     
+                $this->removeFile(@$imgOld[$key]['image']);   // remove image old     
                 $fileNameExtra = $this->randomFileName($value);
                 move_uploaded_file($fileObj['tmp_name'][$key], PATH_UPLOAD . $fileNameExtra);
-                $arrExtra[$key] = $fileNameExtra;
+                $arrExtra[$key]['image'] = $fileNameExtra;
             }else{
-                $arrExtra[$key] = !empty($imgOld[$key]) ? $imgOld[$key] : '';
+                $arrExtra[$key]['image'] = !empty($imgOld[$key]['image']) ? $imgOld[$key]['image'] : '';
             }
+            $arrExtra[$key]['ordering'] = !empty($ordering[$key]) ? $ordering[$key] : $key + 1;
+            $arrExtra[$key]['alt']      = !empty($altExtra[$key]) ? $altExtra[$key] : '';
         }
         return $arrExtra;
     }

@@ -15,13 +15,16 @@ if(isset($_POST['submit'])) {
 
     $name = $_POST['name'];
     $price = $_POST['price'];
+    $altMain     = $_POST['alt_main'];
+    $altExtra    = $_POST['alt_extra'];
+    $ordering    = $_POST['ordering'];
     $description = $_POST['description'];
     $imageMain = $_FILES['image_main'];
     $imageExtra = $_FILES['image_extra'];
     
-    $fileNameMain = $objUpload->uploadFile($imageMain, @$product['image_main']);  // upload image main
+    $fileNameMain = $objUpload->uploadFile($imageMain, $altMain, @$product['image_main']);  // upload image main
 
-    $arrExtra    = $objUpload->uploadFileMulty($imageExtra, @$product['image_extra']);  // upload image extra
+    $arrExtra    = $objUpload->uploadFileMulty($imageExtra, $altExtra, $ordering, @$product['image_extra']);  // upload image extra
     
     $item = [
         'id' => $id,

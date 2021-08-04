@@ -9,7 +9,7 @@ if(!empty($data)){
         $index = ++$key;
         $name = $value['name'];
         $price = number_format($value['price']);
-        $imgMain = $value['image_main'];
+        $imgMain = $value['image_main']['image'];
         $btnView = Form::showButtonAction('info.php?id='.$value['id'].'', 'primary', 'View', 'eye');
         $btnEdit = Form::showButtonAction('form.php?id='.$value['id'].'', 'success', 'Edit', 'pencil');
         $btnDelete = Form::showButtonAction('delete.php?id='.$value['id'].'', 'danger btn-delete', 'Delete', 'trash-o');
