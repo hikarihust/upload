@@ -44,7 +44,7 @@ ul li.lslide{
 .preview, .img-old{
     position: absolute;
     top: 0;
-    left: calc(100% - 0.5em);
+    /* left: calc(100% - 0.5em); */
     height: 38px;
     width: 38px;
     object-fit: contain;
@@ -71,4 +71,10 @@ ul li.lslide{
         right: 8px;
         left: unset;
     }
+}
+
+.switch-btn{
+    position: absolute;
+    top: 0;
+    right: -32px;
 }
