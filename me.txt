@@ -37,4 +37,6 @@ CRUD with multi image - Alt & Ordering
     Add product
     Edit product
     Show product detail
+    Sort product
+        Sort an array by a child array's value
     

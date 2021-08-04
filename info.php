@@ -10,6 +10,13 @@ $imgMain = $product['image_main']['image'];
 $altMain = @$product['image_main']['alt'];
 $imgExtra = $product['image_extra'];
 
+usort($imgExtra,function ($a, $b) {
+    if ($a['ordering'] == $b['ordering']) {
+            return 0;
+    }
+    return ($a['ordering'] < $b['ordering']) ? -1 : 1;
+});
+
 $xhtml = '';
 $xhtml = '
 <div class="col-md-7 col-sm-7">
