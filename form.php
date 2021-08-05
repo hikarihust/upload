@@ -8,7 +8,7 @@ if(isset($_GET['id'])){
     $product = $obj->get($id);
 }
 
-$elementsInput = [
+$elements = [
     [
         'label'   => Form::label('Name'),
         'element' => Form::input('text', 'name', @$product['name'])
@@ -18,31 +18,13 @@ $elementsInput = [
         'element' => Form::input('number', 'price', @$product['price'])
     ],
     [
-        'label'   => Form::label('Description', false),
+        'label'   => Form::label('Description', null, false),
         'element' => Form::textArea('description', @$product['description'])
     ],
     [
-        'label'   => Form::label('', null, false),
-        'element' => Form::button('button', '<i class="fa fa-plus"></i> Thêm hình ảnh', 'primary btn-sm d-block mx-auto btn-add-image')
-    ]
-];
-
-$elementsImage = [];
-    if(!empty($product['images'])){
-        foreach ($product['images'] as $key => $value) {
-            $index = $key + 1;
-            $elementsImage[] = [
-                'label'   => Form::label("Hình ảnh phụ {$index}", 'label-image', false),
-                'element' => Form::inputImage('images[]') .
-                             Form::input('text','alt[]', @$value['alt'], 'col-md-3 ml-1', 'alt_image', false) .
-                             Form::input('number','ordering[]', @$value['ordering'], 'col-md-2 ml-1', false) .
-                             Form::imageOld(@$value['image'], @$id) .
-                             Form::button('button', '<i class="fa fa-times"></i>', 'danger btn-sm btn-remove-image rounded-circle switch-btn', $key)
-            ];
-        }
-    }
-
-$elementsSubmit = [
+        'label'   => Form::label('Hình ảnh', null, false),
+        'element' => Form::inputDropzone()
+    ],
     [
         'element' => Form::button('submit', 'Lưu', 'success d-block mx-auto') .
                     Form::input('hidden', 'type', @$type) .
@@ -76,9 +58,7 @@ $elementsSubmit = [
 
                             <div class="x_content">
                                 <form action="./handle.php" method="POST" enctype="multipart/form-data" class="form-horizontal form-label-left" autocomplete="off">
-                                    <?= Form::show($elementsInput) ?>
-                                    <?= Form::show($elementsImage) ?>
-                                    <?= Form::show($elementsSubmit) ?>
+                                    <?= Form::show($elements) ?>
                                 </form>
                             </div>
                         </div>
@@ -91,5 +71,13 @@ $elementsSubmit = [
         </div>
         
         <?php require_once PATH_HTML . '/script.php' ?>   
+
+        <script>
+            // Dropzone class:
+            Dropzone.autoDiscover = false;
+            $(document).ready(function () {
+                var myDropzone = new Dropzone("div#dropzone", { url: "/"});
+            });
+        </script>
 </body>
 </html>

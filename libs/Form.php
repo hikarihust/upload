@@ -77,6 +77,14 @@ class Form {
     
         return $xhtml;
     }
+
+    public static function inputDropzone(){
+        $xhtml = null;
+        $xhtml .= sprintf('
+            <div class="dropzone" id="dropzone"></div>');
+    
+        return $xhtml;
+    }
     
     public static function show($elements){
         $xhtml = null;

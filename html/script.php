@@ -27,6 +27,8 @@
 <script src="./assets/js/date.js"></script>
 <script src="./assets/js/moment.min.js"></script>
 <script src="./assets/js/daterangepicker.js"></script>
+<!-- dropzone -->
+<script src="./assets/js/dropzone.min.js"></script>
 <!-- Custom Theme Scripts -->
 <script src="./assets/js/custom.min.js"></script>
 <script src="./assets/js/myScript.js"></script>
