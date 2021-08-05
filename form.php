@@ -91,8 +91,21 @@ $elements = [
                     dictCancelUpload: "Cancel",
                     dictRemoveFile: "Remove",
                     dictMaxFilesExceeded: "Only {{maxFiles}} files are allowed",
-                    dictDefaultMessage: "Drop files here to upload"
-
+                    dictDefaultMessage: "Drop files here to upload",
+                    init: function () {
+                        <?php if(isset($id)){ ?>
+                            $.get("./get_data.php?id=<?= $id ?>", function (data) {
+                                $.each(JSON.parse(data), function (index, mockFile) { 
+                                    let url = './uploads/' + mockFile.image;
+                                    // var mockFile = { name: "myimage.jpg", size: 12345 };       
+                                    this.options.addedfile.call(this, mockFile);
+                                    this.options.thumbnail.call(this, mockFile, url);
+                                    mockFile.previewElement.classList.add('dz-success');
+                                    mockFile.previewElement.classList.add('dz-complete'); 
+                                }); 
+                            });
+                        <?php } ?>
+                    }
                 });
 
                 myDropzone.on("addedfile", function(file) {
