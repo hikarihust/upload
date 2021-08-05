@@ -55,4 +55,6 @@ Integrated DropzoneJS
         https://www.dropzonejs.com/
     Create Form 02
         add text input to dropzone upload
+    Add product
+        handle upload multi dropzone
     

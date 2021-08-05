@@ -77,10 +77,22 @@ $elements = [
             Dropzone.autoDiscover = false;
             $(document).ready(function () {
                 var myDropzone = new Dropzone("div#dropzone", { 
-                    url: "/",
+                    url: "./upload.php",
                     paramName: "file",
                     maxFiles: 10,
                     maxFilesize: 2,
+                    uploadMultiple: true, // uplaod files in a single request
+                    parallelUploads: 100, // use it with uploadMultiple
+                    acceptedFiles: ".jpg, .jpeg, .png",
+                    addRemoveLinks: true,
+                    // Language Strings
+                    dictFileTooBig: "File is to big ({{filesize}}mb). Max allowed file size is {{maxFilesize}}mb",
+                    dictInvalidFileType: "Invalid File Type",
+                    dictCancelUpload: "Cancel",
+                    dictRemoveFile: "Remove",
+                    dictMaxFilesExceeded: "Only {{maxFiles}} files are allowed",
+                    dictDefaultMessage: "Drop files here to upload"
+
                 });
 
                 myDropzone.on("addedfile", function(file) {
