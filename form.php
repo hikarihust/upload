@@ -114,6 +114,11 @@ $elements = [
                                 }); 
                             });
                         <?php } ?>
+                    },
+                    removedfile: function(file) {
+                        $('form').append('<input type="hidden" name="img_deleted[]" value="' + file.image + '">')
+                        var _ref;
+                        return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
                     }
                 });
 

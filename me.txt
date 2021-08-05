@@ -60,4 +60,7 @@ Integrated DropzoneJS
     Edit product 01
         show the files already stored on server using Dropzone.js
     Edit product 02
-    
+    Delete image
+        delete all files in folder php 
+        delete file dropzone 
+        

@@ -20,16 +20,21 @@ if(isset($_POST)) {
     $description = $_POST['description'];
     $images = $_POST['images'];
 
-    // $arrDeleteImg = [];
-    // if(isset($_POST['image_delete'])){
-    //     foreach ($_POST['image_delete'] as $key => $value) {
-    //         $arrDeleteImg[$value] = $product['images'][$value];
-    //     }
-    // }
-    // $arrNew = array_diff_key($product['images'], $arrDeleteImg);
-    // $imageOld = array_values($arrNew);
+    if(isset($_POST['img_deleted'])){
+        foreach ($_POST['img_deleted'] as $key => $value) {
+            $objUpload->removeFile($value);
+        }
+    }
     
     $arrImage    = $objUpload->uploadFileMulty($images, $alts, $size);  // upload image extra
+
+    // delete all file in tmp folder
+    $files = glob('./tmp/*'); // get all file names
+    foreach($files as $file){ // iterate files
+        if(is_file($file)) {
+            unlink($file); // delete file
+        }
+    }
     
     $item = [
         'id' => $id,
