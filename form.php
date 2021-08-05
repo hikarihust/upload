@@ -87,24 +87,24 @@ $elements = [
                     addRemoveLinks: true,
                     // Language Strings
                     dictFileTooBig: "File is to big ({{filesize}}mb). Max allowed file size is {{maxFilesize}}mb",
-                    dictInvalidFileType: "Invalid File Type",
+                    dictInvalidFileType: "File không hợp lệ",
                     dictCancelUpload: "Cancel",
-                    dictRemoveFile: "Remove",
+                    dictRemoveFile: "Xóa",
                     dictMaxFilesExceeded: "Only {{maxFiles}} files are allowed",
-                    dictDefaultMessage: "Drop files here to upload",
+                    dictDefaultMessage: "Click hoặc kéo file hình ảnh vào đây",
                     init: function () {
                         let myDropzone = this
                         <?php if(isset($id)){ ?>
                             $.get("./get_data.php?id=<?= $id ?>", function (data) {
                                 $.each(JSON.parse(data), function (index, mockFile) { 
                                     let url = 'uploads/' + mockFile.image;
-                                    mockFile.name = mockFile.image;   
+                                    // mockFile.name = mockFile.image;   
                                     myDropzone.options.addedfile.call(myDropzone, mockFile);
                                     myDropzone.options.thumbnail.call(myDropzone, mockFile, url);
                                     mockFile.previewElement.classList.add('dz-success');
                                     mockFile.previewElement.classList.add('dz-complete'); 
 
-                                    mockFile._captionBox = Dropzone.createElement("<input type='text' name='alts[]' value="+mockFile.alt+" >");
+                                    mockFile._captionBox = Dropzone.createElement("<input type='text' name='alts[]' value='"+mockFile.alt+"' class='input_alt' >");
                                     mockFile._image = Dropzone.createElement("<input type='hidden' name='images[]' value="+mockFile.image+" >");
                                     mockFile._size = Dropzone.createElement("<input type='hidden' name='size[]' value="+mockFile.size+" >");
 
@@ -116,6 +116,7 @@ $elements = [
                         <?php } ?>
                     },
                     removedfile: function(file) {
+                        $(".dz-message").remove();
                         $('form').append('<input type="hidden" name="img_deleted[]" value="' + file.image + '">')
                         var _ref;
                         return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
@@ -124,7 +125,7 @@ $elements = [
 
                 myDropzone.on("addedfile", function(file) {
                     caption = file.caption == undefined ? "" : file.caption;
-                    file._captionBox = Dropzone.createElement("<input type='text' name='alts[]' value="+caption+" >");
+                    file._captionBox = Dropzone.createElement("<input type='text' class='input_alt' name='alts[]' value="+caption+" >");
                     file._image = Dropzone.createElement("<input type='hidden' name='images[]' value="+file.name+" >");
                     file._size = Dropzone.createElement("<input type='hidden' name='size[]' value="+file.size+" >");
 

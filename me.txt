@@ -63,4 +63,5 @@ Integrated DropzoneJS
     Delete image
         delete all files in folder php 
         delete file dropzone 
-        
+    Fix css
+    
