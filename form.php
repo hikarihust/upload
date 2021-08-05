@@ -93,15 +93,24 @@ $elements = [
                     dictMaxFilesExceeded: "Only {{maxFiles}} files are allowed",
                     dictDefaultMessage: "Drop files here to upload",
                     init: function () {
+                        let myDropzone = this
                         <?php if(isset($id)){ ?>
                             $.get("./get_data.php?id=<?= $id ?>", function (data) {
                                 $.each(JSON.parse(data), function (index, mockFile) { 
-                                    let url = './uploads/' + mockFile.image;
-                                    // var mockFile = { name: "myimage.jpg", size: 12345 };       
-                                    this.options.addedfile.call(this, mockFile);
-                                    this.options.thumbnail.call(this, mockFile, url);
+                                    let url = 'uploads/' + mockFile.image;
+                                    mockFile.name = mockFile.image;   
+                                    myDropzone.options.addedfile.call(myDropzone, mockFile);
+                                    myDropzone.options.thumbnail.call(myDropzone, mockFile, url);
                                     mockFile.previewElement.classList.add('dz-success');
                                     mockFile.previewElement.classList.add('dz-complete'); 
+
+                                    mockFile._captionBox = Dropzone.createElement("<input type='text' name='alts[]' value="+mockFile.alt+" >");
+                                    mockFile._image = Dropzone.createElement("<input type='hidden' name='images[]' value="+mockFile.image+" >");
+                                    mockFile._size = Dropzone.createElement("<input type='hidden' name='size[]' value="+mockFile.size+" >");
+
+                                    mockFile.previewElement.appendChild(mockFile._captionBox);
+                                    mockFile.previewElement.appendChild(mockFile._image);
+                                    mockFile.previewElement.appendChild(mockFile._size);
                                 }); 
                             });
                         <?php } ?>

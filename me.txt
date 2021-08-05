@@ -59,4 +59,5 @@ Integrated DropzoneJS
         handle upload multi dropzone
     Edit product 01
         show the files already stored on server using Dropzone.js
+    Edit product 02
     
