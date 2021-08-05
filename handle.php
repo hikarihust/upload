@@ -15,10 +15,9 @@ if(isset($_POST)) {
 
     $name = $_POST['name'];
     $price = $_POST['price'];
-    $alts     = $_POST['alt'];
-    $ordering    = $_POST['ordering'];
+    $alts     = $_POST['alts'];
     $description = $_POST['description'];
-    $images = $_FILES['images'];
+    $images = $_POST['images'];
 
     $arrDeleteImg = [];
     if(isset($_POST['image_delete'])){
@@ -29,7 +28,7 @@ if(isset($_POST)) {
     $arrNew = array_diff_key($product['images'], $arrDeleteImg);
     $imageOld = array_values($arrNew);
     
-    $arrImage    = $objUpload->uploadFileMulty($images, $alts, $ordering, @$imageOld);  // upload image extra
+    $arrImage    = $objUpload->uploadFileMulty($images, $alts, @$imageOld);  // upload image extra
     
     $item = [
         'id' => $id,

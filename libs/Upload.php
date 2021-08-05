@@ -2,19 +2,18 @@
 
 class Upload{
 
-    public function uploadFileMulty($fileObj, $alts, $ordering, $imgOld = null){
+    public function uploadFileMulty($fileObj, $alts, $imgOld = null){
         $arrImage = [];
-        foreach ($fileObj['name'] as $key => $value) { 
-            if(!empty($fileObj['tmp_name'][$key])){
+        foreach ($fileObj as $key => $value) { 
+            // if(!empty($fileObj['tmp_name'][$key])){
                 $this->checkExtension($value, EXTENTION_VALID);  // check type image
                 $this->removeFile(@$imgOld[$key]['image']);   // remove image old     
-                $fileImage = $this->randomFileName($value);
-                move_uploaded_file($fileObj['tmp_name'][$key], PATH_UPLOAD . $fileImage);
-                $arrImage[$key]['image'] = $fileImage;
-            }else{
-                $arrImage[$key]['image'] = !empty($imgOld[$key]['image']) ? $imgOld[$key]['image'] : '';
-            }
-            $arrImage[$key]['ordering'] = !empty($ordering[$key]) ? $ordering[$key] : $key + 1;
+                $fileNameImage = $this->randomFileName($value);
+                // move_uploaded_file($fileObj['tmp_name'][$key], PATH_UPLOAD . $fileNameImage);
+                $arrImage[$key]['image'] = $fileNameImage;
+            // }else{
+            //     $arrImage[$key]['image'] = !empty($imgOld[$key]['image']) ? $imgOld[$key]['image'] : '';
+            // }
             $arrImage[$key]['alt']      = !empty($alts[$key]) ? $alts[$key] : '';
         }
 

@@ -76,7 +76,23 @@ $elements = [
             // Dropzone class:
             Dropzone.autoDiscover = false;
             $(document).ready(function () {
-                var myDropzone = new Dropzone("div#dropzone", { url: "/"});
+                var myDropzone = new Dropzone("div#dropzone", { 
+                    url: "/",
+                    paramName: "file",
+                    maxFiles: 10,
+                    maxFilesize: 2,
+                });
+
+                myDropzone.on("addedfile", function(file) {
+                    caption = file.caption == undefined ? "" : file.caption;
+                    file._captionBox = Dropzone.createElement("<input type='text' name='alts[]' value="+caption+" >");
+                    file._image = Dropzone.createElement("<input type='hidden' name='images[]' value="+file.name+" >");
+                    file._size = Dropzone.createElement("<input type='hidden' name='size[]' value="+file.size+" >");
+
+                    file.previewElement.appendChild(file._captionBox);
+                    file.previewElement.appendChild(file._image);
+                    file.previewElement.appendChild(file._size);
+                });
             });
         </script>
 </body>

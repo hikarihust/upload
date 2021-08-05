@@ -53,4 +53,6 @@ Integrated DropzoneJS
     backup CRUD with multi image - Advance
     Create Form 01
         https://www.dropzonejs.com/
+    Create Form 02
+        add text input to dropzone upload
     
