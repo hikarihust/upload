@@ -47,4 +47,5 @@ CRUD with multi image - Advance
     Add product
     Edit product 01
     Edit product 02
+    Show product detail
     

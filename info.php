@@ -6,11 +6,9 @@ $product = $obj->get($_GET['id']);
 $name = $product['name'];
 $price = number_format($product['price']);
 $description = $product['description'];
-$imgMain = $product['image_main']['image'];
-$altMain = @$product['image_main']['alt'];
-$imgExtra = $product['image_extra'];
+$imgages = $product['images'];
 
-usort($imgExtra,function ($a, $b) {
+usort($imgages,function ($a, $b) {
     if ($a['ordering'] == $b['ordering']) {
             return 0;
     }
@@ -22,11 +20,8 @@ $xhtml = '
 <div class="col-md-7 col-sm-7">
     <div class="demo">
         <ul id="lightSlider">
-            <li data-thumb="' . PATH_UPLOAD .$imgMain.'">
-                <img src="' . PATH_UPLOAD .$imgMain.'" alt="'.$altMain.'"/>
-            </li>
         ';
-            foreach ($imgExtra as $key => $value) {
+            foreach ($imgages as $key => $value) {
                 if(!empty($value['image'])){
                     $xhtml .= '
                     <li data-thumb="' . PATH_UPLOAD .$value['image'].'">
