@@ -49,4 +49,6 @@ CRUD with multi image - Advance
     Edit product 02
     Show product detail
     Delete product
+Integrated DropzoneJS
+    backup CRUD with multi image - Advance
     
