@@ -133,6 +133,14 @@ $elements = [
                     file.previewElement.appendChild(file._image);
                     file.previewElement.appendChild(file._size);
                 });
+
+                $( function() {
+                    $( "#dropzone" ).sortable({
+                        delay: 500,
+                        cursor: 'move'
+                    });
+                    $( "#dropzone" ).disableSelection();
+                } );
             });
         </script>
 </body>

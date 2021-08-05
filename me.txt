@@ -64,4 +64,6 @@ Integrated DropzoneJS
         delete all files in folder php 
         delete file dropzone 
     Fix css
+    Sortable jquery
+        Sort image jquery 
     

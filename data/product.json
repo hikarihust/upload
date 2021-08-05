@@ -1,1 +1,25 @@
-[]
+[
+    {
+        "id": "yxSADV",
+        "name": "ao",
+        "price": "110000",
+        "description": "mo ta ao",
+        "images": [
+            {
+                "image": "C2StXvVfh.png",
+                "alt": "img3",
+                "size": "499434"
+            },
+            {
+                "image": "94NTikdKO.png",
+                "alt": "img2",
+                "size": "522497"
+            },
+            {
+                "image": "8NdcJermR.png",
+                "alt": "img1",
+                "size": "447948"
+            }
+        ]
+    }
+]

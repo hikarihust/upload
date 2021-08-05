@@ -8,13 +8,6 @@ $price = number_format($product['price']);
 $description = $product['description'];
 $imgages = $product['images'];
 
-usort($imgages,function ($a, $b) {
-    if ($a['ordering'] == $b['ordering']) {
-            return 0;
-    }
-    return ($a['ordering'] < $b['ordering']) ? -1 : 1;
-});
-
 $xhtml = '';
 $xhtml = '
 <div class="col-md-7 col-sm-7">

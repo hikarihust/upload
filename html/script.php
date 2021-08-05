@@ -29,6 +29,8 @@
 <script src="./assets/js/daterangepicker.js"></script>
 <!-- dropzone -->
 <script src="./assets/js/dropzone.min.js"></script>
+<!-- Sortable -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- Custom Theme Scripts -->
 <script src="./assets/js/custom.min.js"></script>
 <script src="./assets/js/myScript.js"></script>
